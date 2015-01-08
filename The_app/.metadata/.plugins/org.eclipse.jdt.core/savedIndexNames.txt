@@ -1,0 +1,6 @@
+INDEX VERSION 1.126+C:\Users\Marc\Documents\School\Minor\Project\BeatYourBucketAndroid\The_app\.metadata\.plugins\org.eclipse.jdt.core
+9174583.index
+1517632004.index
+1284074322.index
+1180833926.index
+4188941365.index
