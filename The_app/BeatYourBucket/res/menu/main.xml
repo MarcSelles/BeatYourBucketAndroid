@@ -4,9 +4,18 @@
     tools:context="com.byb.beatyourbucket.MainActivity" >
 
     <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never"/>
-
+        android:id="@+id/bucketlists"
+        android:orderInCategory="61"
+        android:title="Bucketlists"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/home"
+        android:orderInCategory="62"
+        android:title="Home"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/profile"
+        android:orderInCategory="63"
+        android:title="Profile"
+        app:showAsAction="always"/>
 </menu>

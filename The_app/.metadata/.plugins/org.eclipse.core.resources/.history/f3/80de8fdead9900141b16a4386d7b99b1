@@ -1,0 +1,38 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.byb.beatyourbucket.ListActivity" >
+
+    <item
+        android:id="@+id/bucketlists"
+        android:orderInCategory="1"
+        android:title="Bucketlists"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/home"
+        android:orderInCategory="2"
+        android:title="Home"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/profile"
+        android:orderInCategory="3"
+        android:title="Profile"
+        app:showAsAction="always"/>
+    
+    <item
+        android:id="@+id/challenges"
+        android:orderInCategory="4"
+        android:title="Challenges"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/completed"
+        android:orderInCategory="5"
+        android:title="Completed"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/positions"
+        android:orderInCategory="6"
+        android:title="Stand"
+        app:showAsAction="always"/>
+
+</menu>

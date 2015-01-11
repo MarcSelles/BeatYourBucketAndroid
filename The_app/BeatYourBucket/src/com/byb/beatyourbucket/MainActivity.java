@@ -1,37 +1,58 @@
 package com.byb.beatyourbucket;
 
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.ActionBar;
+import android.view.View;
+
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+//import android.util.Log;
+//import android.view.Menu;
+//import android.view.MenuItem;
+//import android.view.Window;
+//import android.view.WindowManager;
+//import android.view.WindowManager.LayoutParams;
+//import android.widget.TextView;
 
 
-public class MainActivity extends ActionBarActivity {
-
-    @Override
+public class MainActivity extends BaseActivity {
+	
+	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayShowHomeEnabled(false);
+        actionBar.setDisplayShowTitleEnabled(false);
         
+
+        
+//        android.support.v7.app.ActionBar actionBar = getSupportActionBar();
+//    	actionBar.hide();
     }
+	
+	public void seeList(View view) {
+		Intent intent = new Intent(this, ListActivity.class);
+		startActivity(intent);
+		finish();
+	}
+	
+	@Override
+	public void onStart()
+	{
+		super.onStart();
+	}
+	
+	@Override
+	public void onResume()
+	{
+		super.onResume();
+	}
+
+	@Override
+	public void onPause()
+	{
+		super.onPause();
+	}
 
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
 }

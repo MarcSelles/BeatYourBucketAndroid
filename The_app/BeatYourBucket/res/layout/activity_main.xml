@@ -9,8 +9,20 @@
     tools:context="com.byb.beatyourbucket.MainActivity" >
 
     <TextView
+        android:id="@+id/hoi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/hello_world" />
+
+    <Button
+        android:id="@+id/list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/hoi"
+        android:layout_below="@+id/hoi"
+        android:layout_marginTop="44dp"
+        android:onClick="seeList"
+        android:text="list"
+        android:visibility="invisible" />
 
 </RelativeLayout>
