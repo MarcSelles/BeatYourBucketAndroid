@@ -1,0 +1,7 @@
+package com.byb.beatyourbucket;
+
+import android.app.Fragment;
+
+public class FragmentMain extends Fragment {
+
+}

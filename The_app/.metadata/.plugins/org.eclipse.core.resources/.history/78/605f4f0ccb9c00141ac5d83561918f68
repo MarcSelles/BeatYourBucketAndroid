@@ -1,0 +1,128 @@
+package com.byb.beatyourbucket;
+
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
+import android.os.Bundle;
+import android.support.v4.app.FragmentTabHost;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.TabHost;
+import android.widget.TextView;
+//import android.util.Log;
+//import android.view.Menu;
+//import android.view.MenuItem;
+//import android.view.Window;
+//import android.view.WindowManager;
+//import android.view.WindowManager.LayoutParams;
+//import android.widget.TextView;
+
+
+public class MainActivity extends ActionBarActivity {
+	
+	private FragmentTabHost mHost;
+	@Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+        // Hide the actionbar
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
+        
+        // Make the tabmenu
+        makeMenu();
+        
+        Button listbut = (Button)findViewById(R.id.list);
+        
+        listbut.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				TextView hoi = (TextView)findViewById(R.id.hooi);
+				hoi.setText("hoi");
+				
+				// See Fragment when clicked
+				FragmentManager FM = getFragmentManager();
+				FragmentTransaction FT = FM.beginTransaction();
+				FragmentLists FL = new FragmentLists();
+				
+//				FT.replace(R.id.tabcontent, FL);
+//				FT.add(R.id.fraglists, FL);
+				FT.commit();
+			}
+		});
+        
+    }
+	
+	
+
+	public void changeFragment() {
+	    FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+	    EntertainmentFragment enFragment = new EntertainmentFragment();
+	    ft.replace(R.id.tabcontent, enFragment);
+	    ft.commit();
+	}
+	
+	
+	
+	
+	
+	
+//	public void makeMenu(){
+//		
+////        actionBar.setDisplayShowHomeEnabled(false);
+////        actionBar.setDisplayShowTitleEnabled(false);
+////        actionBar.setDisplayHomeAsUpEnabled(false);
+//        
+//		// Create the tabhost
+//        TabHost tabHost = (TabHost) findViewById(R.id.tabhost);
+//        
+//        tabHost.setup();
+//        TabHost.TabSpec tabSpec = tabHost.newTabSpec("bucketlist");
+////        tabSpec.setContent(R.id.tab1);
+//        tabSpec.setIndicator("Bucketlist");
+//        tabHost.addTab(tabSpec);
+//        
+//        tabSpec = tabHost.newTabSpec("home");
+////        tabSpec.setContent(R.id.tab2);
+//        tabSpec.setIndicator("Home");
+//        tabHost.addTab(tabSpec);
+//        
+//        tabSpec = tabHost.newTabSpec("profile");
+////        tabSpec.setContent(R.id.tab3);
+//        tabSpec.setIndicator("Profiel");
+//        tabHost.addTab(tabSpec);
+//        
+//        tabHost.setCurrentTabByTag("home");
+//	}
+	
+//	public void seeList(View view) {
+//		Intent intent = new Intent(this, ListActivity.class);
+//		startActivity(intent);
+//		finish();
+//	}
+	
+	@Override
+	public void onStart()
+	{
+		super.onStart();
+	}
+	
+	@Override
+	public void onResume()
+	{
+		super.onResume();
+	}
+
+	@Override
+	public void onPause()
+	{
+		super.onPause();
+	}
+
+
+}

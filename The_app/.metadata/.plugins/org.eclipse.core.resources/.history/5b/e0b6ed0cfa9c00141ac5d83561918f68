@@ -1,0 +1,36 @@
+package com.byb.beatyourbucket;
+
+import android.support.v4.app.Fragment;
+import android.support.v4.app.ListFragment;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+
+
+public class FragmentBucket  extends Fragment {
+	String[] buckets = new String[] {
+			"Bucket1",
+			"Bucket2"
+	};
+	@Override
+	public View onCreateView(LayoutInflater inflater,
+			@Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		
+		/** Creating an array adapter to store the list of countries **/
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(inflater.getContext(), R.layout.tab1_view, buckets);
+ 
+        /** Setting the list adapter for the ListFragment */
+        setListAdapter(adapter);
+ 
+        return super.onCreateView(inflater, container, savedInstanceState);
+        
+//        View v = inflater.inflate(R.layout.tab1_view, (ViewGroup) super.onCreateView(inflater, container, savedInstanceState),false);
+//        return v;
+//		View v = inflater.inflate(R.layout.tab1_view, container, false);
+//		return v;
+	}
+}
