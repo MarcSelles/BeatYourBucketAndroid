@@ -1655,7 +1655,6 @@ containing a value of this type.
         public static final int always=0x7f05000d;
         public static final int beginning=0x7f050012;
         public static final int bucketlists=0x7f050043;
-        public static final int buckets=0x7f050040;
         public static final int challenges=0x7f050045;
         public static final int checkbox=0x7f050029;
         public static final int collapseActionView=0x7f05000f;
@@ -1669,6 +1668,7 @@ containing a value of this type.
         public static final int end=0x7f050014;
         public static final int expand_activities_button=0x7f050022;
         public static final int expanded_menu=0x7f050028;
+        public static final int fragment_list=0x7f050040;
         public static final int hoi=0x7f050041;
         public static final int home=0x7f050015;
         public static final int homeAsUp=0x7f050007;

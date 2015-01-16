@@ -31,6 +31,7 @@ public class FragmentBucket  extends ListFragment implements OnItemClickListener
     public void onActivityCreated(Bundle savedInstanceState) {
      
         super.onActivityCreated(savedInstanceState);
+        Log.v(TAG, "hoi");
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(), R.array.buckets, android.R.layout.simple_list_item_1);
        
         setListAdapter(adapter);
@@ -41,15 +42,17 @@ public class FragmentBucket  extends ListFragment implements OnItemClickListener
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position,
 			long id) {
+		Log.v(TAG, "hoiiiii");
 		// TODO Auto-generated method stub
-//		FragmentManager fm = getFragmentManager();
-//		FragmentTransaction ft = fm.beginTransaction();
+		FragmentManager fm = getFragmentManager();
+		FragmentTransaction ft = fm.beginTransaction();
+		Fragment fl = new FragmentLists();
+		ft.replace(android.R.id.tabcontent, fl);
+		ft.addToBackStack( "tag" );
+//		FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
 //		FragmentLists fl = new FragmentLists();
-//		ft.replace(android.R.id.tabcontent, fl);
-		FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-		FragmentLists fl = new FragmentLists();
-		fragmentTransaction.replace(android.R.id.tabcontent, fl);
-		fragmentTransaction.commit();
+//		fragmentTransaction.replace(android.R.id.tabcontent, fl);
+		ft.commit();
 		
 	}
 }

@@ -352,7 +352,6 @@ int id activity_chooser_view_content 0x7f050021
 int id always 0x7f05000d
 int id beginning 0x7f050012
 int id bucketlists 0x7f050043
-int id buckets 0x7f050040
 int id challenges 0x7f050045
 int id checkbox 0x7f050029
 int id collapseActionView 0x7f05000f
@@ -366,6 +365,7 @@ int id edit_query 0x7f050033
 int id end 0x7f050014
 int id expand_activities_button 0x7f050022
 int id expanded_menu 0x7f050028
+int id fragment_list 0x7f050040
 int id hoi 0x7f050041
 int id home 0x7f050015
 int id homeAsUp 0x7f050007
