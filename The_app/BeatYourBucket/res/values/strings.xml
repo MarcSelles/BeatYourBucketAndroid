@@ -9,6 +9,17 @@
     <string-array name="buckets">
         <item>bucket1</item>
         <item>bucket2</item>
+        <item >Bucket3</item>
+        <item >Bucket4</item>
+        <item >Bucket5</item>
+    </string-array>
+    
+    <string-array name="challenges">
+        <item>Challenge 1</item>
+        <item>Challenge 2</item>
+        <item >Challenge 3</item>
+        <item >Challenge 4</item>
+        <item >Challenge 5</item>
     </string-array>
 
 </resources>

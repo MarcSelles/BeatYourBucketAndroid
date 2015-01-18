@@ -1,9 +1,10 @@
 package com.byb.beatyourbucket;
 
-
-import android.support.v4.app.FragmentTabHost;
-import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTabHost;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 
@@ -11,6 +12,7 @@ import android.support.v7.app.ActionBarActivity;
 public class MainActivity extends ActionBarActivity {
 	
 	private FragmentTabHost mHost;
+	
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,8 +22,15 @@ public class MainActivity extends ActionBarActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
         
-        // Make the tabmenu
+        makeTabs();
+        
+        
+    }
+	
+	public void makeTabs() {
+		// Make the tabmenu
         mHost = (FragmentTabHost) findViewById(android.R.id.tabhost);
+        
         mHost.setup(this, getSupportFragmentManager(), android.R.id.tabcontent);
         mHost.addTab(mHost.newTabSpec("Bucketlists")
                 .setIndicator("Bucketlists"), FragmentBucket.class, null);
@@ -30,19 +39,32 @@ public class MainActivity extends ActionBarActivity {
         mHost.addTab(mHost.newTabSpec("Profiel")
                 .setIndicator("Profiel"), FragmentProfile.class, null);
         mHost.setCurrentTabByTag("Home");
-    }
+        
+	}
 	
 	
-
-//	public void changeFragment() {
-//	    FragmentTransaction FT = getFragmentManager().beginTransaction();
-//	    FragmentMain FM = new FragmentMain();
-//	    FT.replace(android.R.id.tabcontent, FM);
-//	    FT.commit();
+	
+//	public void makeTabs() {
+//        // Make the tabmenu
+//        mHost = (FragmentTabHost) findViewById(android.R.id.tabhost);
+//        FragmentManager fm = getSupportFragmentManager();
+//		FragmentTransaction ft = fm.beginTransaction();
+//		Fragment fb = new FragmentBucket();
+//		Fragment fn = new FragmentNews();
+//		Fragment fp = new FragmentProfile();
+//        
+//		mHost.setup(this, getSupportFragmentManager(), android.R.id.tabcontent);
+//        mHost.addTab(mHost.newTabSpec("Bucketlists")
+//                .setIndicator("Bucketlists") 
+//                .setContent(ft.replace(android.R.id.tabcontent, fb).commit()));
+//        mHost.addTab(mHost.newTabSpec("Home")
+//                .setIndicator("Home")
+//                .setContent(ft.replace(android.R.id.tabcontent, fn).commit()));
+//        mHost.addTab(mHost.newTabSpec("Profiel")
+//                .setIndicator("Profiel")
+//                .setContent(ft.replace(android.R.id.tabcontent, fp).commit()));
+//        mHost.setCurrentTabByTag("Home");
 //	}
-//	
-	
-	
 	
 	
 	
