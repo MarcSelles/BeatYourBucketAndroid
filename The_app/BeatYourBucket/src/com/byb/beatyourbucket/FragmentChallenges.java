@@ -14,7 +14,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 
-public class FragmentChallenges extends ListFragment implements OnItemClickListener{
+public class FragmentChallenges extends ListFragment implements OnItemClickListener {
 	private static final String TAG = "MyActivity";
 	@Override
 	public View onCreateView(LayoutInflater inflater,
@@ -32,7 +32,8 @@ public class FragmentChallenges extends ListFragment implements OnItemClickListe
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(), R.array.challenges, android.R.layout.simple_list_item_1);
        
         setListAdapter(adapter);
-        getListView().setOnItemClickListener(this);
+        getListView();
+//        .setOnItemClickListener(this);
 
     }
 

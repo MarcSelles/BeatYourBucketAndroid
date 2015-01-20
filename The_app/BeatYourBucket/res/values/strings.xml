@@ -21,5 +21,6 @@
         <item >Challenge 4</item>
         <item >Challenge 5</item>
     </string-array>
+    <string name="facebook_app_id">735154943247882</string>
 
 </resources>

@@ -39,8 +39,9 @@ public class MainActivity extends ActionBarActivity {
         mHost.addTab(mHost.newTabSpec("Profiel")
                 .setIndicator("Profiel"), FragmentProfile.class, null);
         mHost.setCurrentTabByTag("Home");
-        
 	}
+	
+	
 	
 	
 	
@@ -112,12 +113,18 @@ public class MainActivity extends ActionBarActivity {
 	public void onResume()
 	{
 		super.onResume();
+		
+		// Logs 'install' and 'app activate' App Events.
+//		  AppEventsLogger.activateApp(this);
 	}
 
 	@Override
 	public void onPause()
 	{
 		super.onPause();
+		
+		// Logs 'app deactivate' App Event.
+//		  AppEventsLogger.deactivateApp(this);
 	}
 
 

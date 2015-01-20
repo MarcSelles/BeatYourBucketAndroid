@@ -1,5 +1,13 @@
 package com.byb.beatyourbucket;
 
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
+import org.apache.http.client.methods.HttpPost;
+
+
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -13,6 +21,8 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
+
+
 
 
 public class FragmentBucket  extends ListFragment implements OnItemClickListener{
@@ -52,6 +62,28 @@ public class FragmentBucket  extends ListFragment implements OnItemClickListener
 //		fragmentTransaction.replace(android.R.id.tabcontent, fl);
 		ft.commit();
 	}
+	
+	public static void main(String[] args) throws IOException {
+		long fb = 735154943247882L;
+		
+		
+		URL url = new URL("http://alpha.beatyourbucket.com/api/bucketlistsforuser.php");
+		
+		
+		HttpURLConnection con = (HttpURLConnection) url.openConnection();
+		
+//		httpCon.addParameter("facebook_id", fb);
+		con.setRequestMethod("POST");
+		con.setDoOutput(true);
+		con.setDoInput(true);
+		
+		OutputStreamWriter out = new OutputStreamWriter(
+		con.getOutputStream());
+		Log.v(TAG, con.getResponseMessage());
+//		System.out.println(httpCon.getResponseCode());
+//		System.out.println(httpCon.getResponseMessage());
+		out.close();
+		}
 	
 	
 	
