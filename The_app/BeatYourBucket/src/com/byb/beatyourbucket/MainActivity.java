@@ -7,6 +7,8 @@ import android.support.v4.app.FragmentTabHost;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
+import android.view.View;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -21,26 +23,74 @@ public class MainActivity extends ActionBarActivity {
         // Hide the actionbar
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
-        
-        makeTabs();
-        
-        
     }
 	
-	public void makeTabs() {
-		// Make the tabmenu
-        mHost = (FragmentTabHost) findViewById(android.R.id.tabhost);
-        
-        mHost.setup(this, getSupportFragmentManager(), android.R.id.tabcontent);
-        mHost.addTab(mHost.newTabSpec("Bucketlists")
-                .setIndicator("Bucketlists"), FragmentBucket.class, null);
-        mHost.addTab(mHost.newTabSpec("Home")
-                .setIndicator("Home"), FragmentNews.class, null);
-        mHost.addTab(mHost.newTabSpec("Profiel")
-                .setIndicator("Profiel"), FragmentProfile.class, null);
-        mHost.setCurrentTabByTag("Home");
+	
+	public void makeTabs(View v){
+		FragmentManager fm = getSupportFragmentManager();
+		FragmentTransaction ft = fm.beginTransaction();
+//		Log.d("VIVZ", v.getId()+"button is clicked");
+		if(v.getId()==R.id.bucketlists){
+			Fragment fb = new FragmentBucket();
+			ft.replace(android.R.id.tabcontent, fb);
+		}
+		else if(v.getId()==R.id.newsfeed){
+			Fragment fb = new FragmentNews();
+			ft.replace(android.R.id.tabcontent, fb);
+		}
+		else if(v.getId()==R.id.profile){
+			Fragment fb = new FragmentProfile();
+			ft.replace(android.R.id.tabcontent, fb);
+		}
+		ft.commit();
 	}
 	
+	public void makeTabs2(View v){
+		FragmentManager fm = getSupportFragmentManager();
+		FragmentTransaction ft = fm.beginTransaction();
+//		Log.d("VIVZ", v.getId()+"button is clicked");
+		if(v.getId()==R.id.challenges){
+			Fragment fb = new FragmentChallenges();
+			ft.replace(R.id.tabcontent2, fb);
+		}
+		else if(v.getId()==R.id.completed){
+			Fragment fb = new FragmentCompleted();
+			ft.replace(R.id.tabcontent2, fb);
+		}
+		else if(v.getId()==R.id.score){
+			Fragment fb = new FragmentScore();
+			Log.d("vla", "hodasd");
+			ft.replace(R.id.tabcontent2, fb);
+		}
+		ft.commit();
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+//	public void makeTabs() {
+//		// Make the tabmenu
+//        mHost = (FragmentTabHost) findViewById(android.R.id.tabhost);
+//        
+//        mHost.setup(this, getSupportFragmentManager(), android.R.id.tabcontent);
+//        mHost.addTab(mHost.newTabSpec("Bucketlists")
+//                .setIndicator("Bucketlists"), FragmentBucket.class, null);
+//        mHost.addTab(mHost.newTabSpec("Home")
+//                .setIndicator("Home"), FragmentNews.class, null);
+//        mHost.addTab(mHost.newTabSpec("Profiel")
+//                .setIndicator("Profiel"), FragmentProfile.class, null);
+//        mHost.setCurrentTabByTag("Home");
+//	}
+//	
 	
 	
 	

@@ -37,4 +37,7 @@
 <fullyQualifiedTypeName name="com.byb.beatyourbucket.FragmentProfile"/>
 <fullyQualifiedTypeName name="com.byb.beatyourbucket.FragmentCompleting"/>
 <fullyQualifiedTypeName name="android.widget.ListView"/>
+<fullyQualifiedTypeName name="android.os.AsyncTask"/>
+<fullyQualifiedTypeName name="android.widget.EditText"/>
+<fullyQualifiedTypeName name="android.widget.Toast"/>
 </qualifiedTypeNameHistroy>

@@ -12,6 +12,16 @@
         <item >Bucket3</item>
         <item >Bucket4</item>
         <item >Bucket5</item>
+        <item>bucket1</item>
+        <item>bucket2</item>
+        <item >Bucket3</item>
+        <item >Bucket4</item>
+        <item >Bucket5</item>
+        <item>bucket1</item>
+        <item>bucket2</item>
+        <item >Bucket3</item>
+        <item >Bucket4</item>
+        <item >Bucket5</item>
     </string-array>
     
     <string-array name="challenges">

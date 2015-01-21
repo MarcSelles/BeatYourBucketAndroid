@@ -1,19 +1,51 @@
-<android.support.v4.app.FragmentTabHost
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@android:id/tabhost"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+    
     <LinearLayout
-        android:orientation="vertical"
+        android:id="@+id/tab_upper"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="top"
+        android:gravity="center|top"
+        android:orientation="horizontal" >
 
-        <FrameLayout
-            android:id="@+id/realtabcontent"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"/>
+	    <Button
+	        android:id="@+id/challenges"
+	        android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center"
+            android:onClick="makeTabs2"
+	        android:text="Challenges" />
+		
+	    <Button
+	        android:id="@+id/completed"
+	        android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center"
+            android:onClick="makeTabs2"
+	        android:text="Voltooid" />
+	
+	    <Button
+	        android:id="@+id/score"
+	        android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center"
+            android:onClick="makeTabs2"
+	        android:text="Stand" />
+	    
+	</LinearLayout>
+	    
+    <LinearLayout
+        android:id="@+id/tabcontent2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/tab_upper"
+        android:orientation="vertical" >
 
     </LinearLayout>
-</android.support.v4.app.FragmentTabHost>
+    
+</RelativeLayout>
