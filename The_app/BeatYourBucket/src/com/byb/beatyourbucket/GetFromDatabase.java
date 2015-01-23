@@ -14,34 +14,69 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import android.os.AsyncTask;
 import android.util.Log;
 
 class GetFromDatabase extends AsyncTask<Void, Integer, String>{
+	
+	private ArrayList<JSONObject> list;
+	private onLoadingFinishedListener listener;
+	private String location;
+	private String key;
+	private String value;
+	
+	public GetFromDatabase(String location,String key, String value, onLoadingFinishedListener listener){
+		this.listener = listener;
+		this.location = location;
+		this.key = key;
+		this.value = value;
+	}
 		 
 	@Override
 	protected String doInBackground(Void... params) {
 		// TODO Auto-generated method stub
-		return GetBucketData();
+		return GetBucketData(location, key, value);
 	}
 	
+	
 	protected void onPostExecute(String result){
+		list = new ArrayList<JSONObject>();
+		Log.d("loggin", "hoi");
+		try {
+			JSONArray jsonarray = new JSONArray(result);
+			
+			for (int i=0; i<jsonarray.length(); i++){
+			JSONObject jsonobject = jsonarray.getJSONObject(i);
+			Log.d("JSON", jsonobject.toString());
+			list.add(jsonobject);
+			Log.d("lijst", list.toString());
+			listener.onLoadingFinished(list);
+			}
+//			adapter.notifyDataSetChanged();
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		
 	}
 
 	
-	public String GetBucketData() {
+	public String GetBucketData(String location, String key, String value) {
 		String jstring = null;
 		
 		// Create a new HttpClient and Post Header
 	    HttpClient httpclient = new DefaultHttpClient();
-	    HttpPost httppost = new HttpPost("http://alpha.beatyourbucket.com/api/bucketlistsforuser.php");
+	    HttpPost httppost = new HttpPost("http://alpha.beatyourbucket.com/api/" + location);
+	    Log.d("ksad", "http://alpha.beatyourbucket.com/api/" + location);
 	    
 	    try {
 	        // Add your data
 	    	List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
-	        nameValuePairs.add(new BasicNameValuePair("facebook_id", "735154943247882"));
+	        nameValuePairs.add(new BasicNameValuePair(key, value));
 	        httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 	        
 	     // Execute HTTP Post Request
@@ -56,7 +91,5 @@ class GetFromDatabase extends AsyncTask<Void, Integer, String>{
 	    }
 	    
 		return jstring;
-	    
-		
 	}
 }

@@ -1,0 +1,17 @@
+package com.byb.beatyourbucket;
+
+import java.util.List;
+
+import org.json.JSONObject;
+
+import android.content.Context;
+import android.widget.ArrayAdapter;
+
+public class BucketlistAdapter extends ArrayAdapter<JSONObject>{
+	public BucketlistAdapter(Context context, int viewresourseId, List<JSONObject> objects) {
+		// TODO Auto-generated constructor stub
+		super (context, viewresourseId, objects);
+		
+	}
+		
+}
