@@ -2,6 +2,7 @@ package com.byb.beatyourbucket;
 
 import com.facebook.Session;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -16,13 +17,14 @@ import android.view.View;
 
 public class MainActivity extends FragmentActivity {
 	private MainFragment mainFragment;
-	
+	SharedPreferences preferences;
 	
 //	private FragmentTabHost mHost;
 	
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        
         
 //        setContentView(R.layout.activity_main);
         

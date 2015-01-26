@@ -2,8 +2,11 @@ package com.byb.beatyourbucket;
 
 import java.util.Arrays;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -22,6 +25,13 @@ public class MainFragment extends Fragment{
 	private static final String TAG = "MainFragment";
 	private UiLifecycleHelper uiHelper;
 	private String user_ID;
+	private SharedPreferences preferences;
+	private SharedPreferences.Editor editor;
+	
+	public static final String MyPREFERENCES = "MyPrefs" ;
+	private Context context;
+	
+	
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, 
@@ -41,7 +51,6 @@ public class MainFragment extends Fragment{
 	    super.onCreate(savedInstanceState);
 	    uiHelper = new UiLifecycleHelper(getActivity(), callback);
 	    uiHelper.onCreate(savedInstanceState);
-	    
 	}
 	
 	
@@ -60,6 +69,15 @@ public class MainFragment extends Fragment{
 		                    if (user != null) {
 		                        user_ID = user.getId();//user id
 		                        String profileName = user.getName();//user's profile name
+//		                        Log.d("adssadsad", preferences.toString());
+		                        
+		                        SharedPreferences preferences = getActivity().getSharedPreferences("pref", Context.MODE_PRIVATE);
+		            			SharedPreferences.Editor editor = preferences.edit();
+		                        
+								editor.putString("user_ID", user_ID);
+								editor.putString("profileName", profileName);
+								editor.commit();
+		                        
 		                        
 		                        Log.d("hoi", user_ID);
 		                        Log.d("hoi", profileName);
@@ -77,9 +95,13 @@ public class MainFragment extends Fragment{
 	private void onSessionStateChange(Session session, SessionState state, Exception exception) {
 	    if (state.isOpened()) {
 	        Log.i(TAG, "Logged in...");
+//	        Request request = Request.newGraphPathRequest(session, "me", null);
+//	        com.facebook.Response response = Request.executeAndWait(request);
+//	        Log.d("sadadadasd", response.toString());
 	        
 	        Intent intent = new Intent(getActivity(), MainScreen.class);
 //	        intent.putExtra("facebookid", user_ID);
+//	        intent.putExtra(Const.NAME, getFacebookAccountName(userString));
 	        
 	        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 	        startActivity(intent);

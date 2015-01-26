@@ -9,6 +9,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.ListFragment;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -27,11 +29,15 @@ public class FragmentChallenges extends ListFragment {
 
 		View v = inflater.inflate(R.layout.fragment_challenges, container, false);
 		
+		SharedPreferences preferences = getActivity().getSharedPreferences("pref", Context.MODE_PRIVATE);
+		String bucketid = preferences.getString("bucketID", "empty");
+		Log.d("ID",bucketid);
+		
 		final ListView listview = (ListView) v.findViewById(android.R.id.list);
 		
 		String location = "challengesforbucketlist.php";
 		String key = "bucketlist_id";
-		String value = "37";
+		String value = bucketid;
 		
 		final GetFromDatabase data = new GetFromDatabase(location,key, value, new onLoadingFinishedListener() {
 			
@@ -70,7 +76,7 @@ public class FragmentChallenges extends ListFragment {
 							// TODO Auto-generated method stub
 							FragmentManager fm = getFragmentManager();
 							FragmentTransaction ft = fm.beginTransaction();
-							Fragment fl = new FragmentLists();
+							Fragment fl = new FragmentCompleting();
 							ft.replace(android.R.id.tabcontent, fl);
 							ft.addToBackStack( "tag" );
 					//		FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();

@@ -1,0 +1,17 @@
+package com.byb.beatyourbucket;
+
+public class CustomListAdapter extends ArrayAdapter<String> {
+	private final Activity context;
+	private final String[] itemtext;
+	private final Integer[] idofimg;
+	
+	public CustomListAdapter(Activity context, String[] itemtext, Integer[] idofimg) {
+		super(context, R.layout.list_layout, itemname);
+		// TODO Auto-generated constructor stub
+		
+		this.context=context;
+		this.itemname=itemname;
+		this.imgid=imgid;
+	}
+	
+}

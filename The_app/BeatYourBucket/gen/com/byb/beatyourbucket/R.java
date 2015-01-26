@@ -1939,7 +1939,7 @@ containing a value of this type.
         public static final int beginning=0x7f05001d;
         public static final int bottom=0x7f050006;
         public static final int box_count=0x7f050005;
-        public static final int bucketlists=0x7f050071;
+        public static final int bucketlists=0x7f050073;
         public static final int button=0x7f050004;
         public static final int button1=0x7f05006a;
         public static final int center=0x7f050009;
@@ -1983,12 +1983,13 @@ containing a value of this type.
         public static final int end=0x7f05001f;
         public static final int expand_activities_button=0x7f05002d;
         public static final int expanded_menu=0x7f050033;
-        public static final int fragment_list=0x7f050074;
+        public static final int fragment_list=0x7f050076;
         public static final int home=0x7f050020;
         public static final int homeAsUp=0x7f050012;
         public static final int icon=0x7f050031;
         public static final int ifRoom=0x7f050017;
         public static final int image=0x7f05002e;
+        public static final int imageView=0x7f050070;
         public static final int inline=0x7f050007;
         public static final int large=0x7f050002;
         public static final int left=0x7f05000a;
@@ -1996,12 +1997,12 @@ containing a value of this type.
         public static final int list_item=0x7f050030;
         public static final int middle=0x7f05001e;
         public static final int never=0x7f050016;
-        public static final int newsfeed=0x7f050072;
+        public static final int newsfeed=0x7f050074;
         public static final int none=0x7f05000f;
         public static final int normal=0x7f050001;
         public static final int picker_subtitle=0x7f05005a;
-        public static final int positions=0x7f050075;
-        public static final int profile=0x7f050073;
+        public static final int positions=0x7f050077;
+        public static final int profile=0x7f050075;
         public static final int progress_circular=0x7f050027;
         public static final int progress_horizontal=0x7f050028;
         public static final int radio=0x7f050036;
@@ -2026,9 +2027,10 @@ containing a value of this type.
         public static final int standard=0x7f050003;
         public static final int submit_area=0x7f050047;
         public static final int tabMode=0x7f05000e;
-        public static final int tab_under=0x7f050070;
+        public static final int tab_under=0x7f050072;
         public static final int tab_upper=0x7f05006b;
         public static final int tabcontent2=0x7f05006f;
+        public static final int textView=0x7f050071;
         public static final int textView1=0x7f050065;
         public static final int textView2=0x7f050066;
         public static final int textView3=0x7f050068;
@@ -2109,12 +2111,13 @@ containing a value of this type.
         public static final int fragment_completing=0x7f030029;
         public static final int fragment_lists=0x7f03002a;
         public static final int fragment_score=0x7f03002b;
-        public static final int main_screen=0x7f03002c;
-        public static final int support_simple_spinner_dropdown_item=0x7f03002d;
-        public static final int tab1_view=0x7f03002e;
-        public static final int tab2_view=0x7f03002f;
-        public static final int tab3_view=0x7f030030;
-        public static final int view_buckets=0x7f030031;
+        public static final int list_layout=0x7f03002c;
+        public static final int main_screen=0x7f03002d;
+        public static final int support_simple_spinner_dropdown_item=0x7f03002e;
+        public static final int tab1_view=0x7f03002f;
+        public static final int tab2_view=0x7f030030;
+        public static final int tab3_view=0x7f030031;
+        public static final int view_buckets=0x7f030032;
     }
     public static final class menu {
         public static final int list=0x7f0d0000;

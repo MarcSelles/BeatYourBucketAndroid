@@ -6,7 +6,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.support.v4.app.Fragment;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -23,9 +25,12 @@ public class FragmentNews  extends Fragment {
 		
 		final ListView listview = (ListView) v.findViewById(android.R.id.list);
 		
+//		SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(getActivity());
 		String location = "updatesforuser.php";
 		String key = "facebook_id";
 		String value = "735154943247882";
+		
+//        String value = settings.getString("user_ID", "");
 		
 		final GetFromDatabase data = new GetFromDatabase(location,key, value, new onLoadingFinishedListener() {
 			
