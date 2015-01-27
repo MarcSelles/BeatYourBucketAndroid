@@ -1,5 +1,9 @@
 package com.byb.beatyourbucket;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -45,34 +49,47 @@ public class FragmentBucket  extends ListFragment {
 //		String value = settings.getString("user_ID", "");
 		String value = "735154943247882";
 		
-		Log.d("Loginengeinasd", value);
-		
 		final GetFromDatabase data = new GetFromDatabase(location, key,
 				value, new onLoadingFinishedListener() {
 			
 			@Override
 			public void onLoadingFinished(ArrayList<JSONObject> datalist) {
-				// TODO Auto-generated method stub
 
 			    final ArrayList<String> list = new ArrayList<String>();
+			    final ArrayList<String> urlImages = new ArrayList<String>();
 			    for (int i = 0; i < datalist.size(); ++i) {
 			    	String title;
 			    	String imagelink;
 			    	String bucketlistid;
 			    	
+			    	
 					try {
+						URI uri = new URI(
+				    			"http",
+				    			"alpha.beatyourbucket.com",
+				    			datalist.get(i).get("image").toString(),
+				    			null);
+						
 						title = datalist.get(i).get("title").toString();
-						imagelink = "http://alpha.beatyourbucket.com" + datalist.get(i).get("image").toString();
+						imagelink = uri.toString();
+						Log.d("notlink", imagelink);
+//						imagelink = "http://alpha.beatyourbucket.com" + URLEncoder.encode(datalist.get(i).get("image").toString(),"UTF-8");
+//						Log.d("ilink", imagelink);
+
 						bucketlistid = datalist.get(i).get("bucketlist_id").toString();
-						String view = imagelink + "          " + title;
+						String view = title;
 						
-//						InputStream is = (InputStream) new URL("http://alpha.beatyourbucket.com" + imagelink).getContent();
-//				        Drawable d = Drawable.createFromStream(is, "byb");
-						
+						urlImages.add(imagelink);
 						list.add(view);
 						dictionary.put(bucketlistid, view);
 						
 					} catch (JSONException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+//					} catch (UnsupportedEncodingException e) {
+//						// TODO Auto-generated catch block
+//						e.printStackTrace();
+					} catch (URISyntaxException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
@@ -82,7 +99,7 @@ public class FragmentBucket  extends ListFragment {
 			      
 			    }
 			    final BucketlistAdapter adapter = new BucketlistAdapter(getActivity(),
-			            android.R.layout.simple_list_item_1, list);
+			            R.layout.bucketlist_layout, list, urlImages);
 			        listview.setAdapter(adapter);
 			        
 			        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -105,12 +122,6 @@ public class FragmentBucket  extends ListFragment {
 			            			editor.commit();
 			            		}
 			            	}
-			            	
-			            	Log.d("daaa", theval);
-			            	Log.d("item", item);
-			            	Log.d("dict", dictionary.keySet().toString());
-			            	
-			            	Log.d("ldoosad", "" + position);
 							
 			            	FragmentManager fm = getFragmentManager();
 							FragmentTransaction ft = fm.beginTransaction();
@@ -122,7 +133,6 @@ public class FragmentBucket  extends ListFragment {
 			        
 			}
 		});
-		Log.d("aah","aah");
 		data.execute();
 		
 		

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+    <TextView
+        android:id="@+id/textView"
+		 android:layout_width="fill_parent"
+		 android:layout_height="0sp"
+		 android:layout_weight="0.12"
+		 android:textSize="25sp"
+		 android:textColor="#A52A2A"
+		 android:gravity="center"
+		 android:background="#DB7343"
+		 android:text="Buckets" />
+ 
+    <ListView
+        android:id="@+id/fragment_list"
+        android:name="com.byb.beatyourbucket.FragmentBucket"
+        android:layout_width="fill_parent"
+        android:layout_height="0sp"
+        android:layout_weight="0.88"
+   />
+ 
+</LinearLayout>

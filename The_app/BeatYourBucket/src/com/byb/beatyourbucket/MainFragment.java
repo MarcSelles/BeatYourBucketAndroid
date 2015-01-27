@@ -69,7 +69,6 @@ public class MainFragment extends Fragment{
 		                    if (user != null) {
 		                        user_ID = user.getId();//user id
 		                        String profileName = user.getName();//user's profile name
-//		                        Log.d("adssadsad", preferences.toString());
 		                        
 		                        SharedPreferences preferences = getActivity().getSharedPreferences("pref", Context.MODE_PRIVATE);
 		            			SharedPreferences.Editor editor = preferences.edit();
@@ -105,7 +104,6 @@ public class MainFragment extends Fragment{
 	        
 	        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 	        startActivity(intent);
-	        Log.d("IIIIIIIIIIIIDDDDDDDDDD", "dadsadsadsadsadsad");
 	    }	    
 	}
 	

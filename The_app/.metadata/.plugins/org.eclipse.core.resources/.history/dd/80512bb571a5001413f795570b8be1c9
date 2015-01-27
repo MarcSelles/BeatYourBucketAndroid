@@ -1,0 +1,54 @@
+package com.byb.beatyourbucket;
+
+import java.util.HashMap;
+import java.util.List;
+
+import android.app.Activity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
+
+public class NewsAdapter extends ArrayAdapter<String>{
+	HashMap<String, Integer> hmID = new HashMap<String, Integer>();
+	private final Activity context;
+	private final int viewresourseId;
+	private final List<String> name;
+	private final List<String> imageURL;
+	private final List<String> info;
+	
+	public NewsAdapter(Activity context, int viewresourseId, List<String> name, List<String> imageURL, List<String> info) {
+		// TODO Auto-generated constructor stub
+		super (context, viewresourseId, name);
+		this.context = context;
+		this.viewresourseId = viewresourseId;
+		this.name = name;
+		this.imageURL = imageURL;
+		this.info = info;
+	}
+	
+	@Override
+	public View getView(int position, View convertview, ViewGroup parent){
+	
+		LayoutInflater inflater = (LayoutInflater) context
+		        .getSystemService(context.LAYOUT_INFLATER_SERVICE);
+		View viewOfRow=inflater.inflate(R.layout.bucketlist_layout, parent, false);
+		TextView textview = (TextView) viewOfRow.findViewById(R.id.textView);
+		ImageView imageView = (ImageView) viewOfRow.findViewById(R.id.imageView);
+		textview.setText(objects.get(position));
+		Picasso.with(context)
+			.load(imageURL.get(position))
+			.fit()
+			.centerCrop()
+//			.error(errorDrawable)
+//			placeholder
+			.into(imageView);
+		return viewOfRow;
+		
+	}
+	
+}

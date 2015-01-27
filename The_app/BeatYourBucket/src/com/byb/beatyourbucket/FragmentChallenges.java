@@ -52,10 +52,6 @@ public class FragmentChallenges extends ListFragment {
 					try {
 						title = datalist.get(i).get("title").toString();
 						
-						
-//						InputStream is = (InputStream) new URL("http://alpha.beatyourbucket.com" + imagelink).getContent();
-//				        Drawable d = Drawable.createFromStream(is, "byb");
-						
 						list.add(title);
 						
 					} catch (JSONException e) {
@@ -64,7 +60,7 @@ public class FragmentChallenges extends ListFragment {
 					}
 			      
 			    }
-			    final BucketlistAdapter adapter = new BucketlistAdapter(getActivity(),
+			    final ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
 			            android.R.layout.simple_list_item_1, list);
 			        listview.setAdapter(adapter);
 			        
