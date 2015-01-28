@@ -22,67 +22,72 @@ public class FragmentCompleted extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater,
 			@Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-		
-		View v = inflater.inflate(R.layout.fragment_completed, container, false);
-		
-		SharedPreferences preferences = getActivity().getSharedPreferences("pref", Context.MODE_PRIVATE);
+
+		View v = inflater
+				.inflate(R.layout.fragment_completed, container, false);
+
+		SharedPreferences preferences = getActivity().getSharedPreferences(
+				"pref", Context.MODE_PRIVATE);
 		String bucketid = preferences.getString("bucketID", "empty");
-		
+
 		final ListView listview = (ListView) v.findViewById(android.R.id.list);
-		
+
 		String location = "completedchallengesforbucketlist.php";
 		String key = "bucketlist_id";
 		String value = bucketid;
 
-		final GetFromDatabase data = new GetFromDatabase(location,key, value, new onLoadingFinishedListener() {
-			
-			@Override
-			public void onLoadingFinished(ArrayList<JSONObject> datalist) {
-				Log.d("data", "hoi");
-				// TODO Auto-generated method stub
-			    final ArrayList<String> namelist = new ArrayList<String>();
-			    final ArrayList<String> urlImages = new ArrayList<String>();
-			    final ArrayList<String> infolist = new ArrayList<String>();
-			    Log.d("data", datalist.toString());
-			    for (int i = 0; i < datalist.size(); ++i) {
-			    	String firstname;
-			    	String lastname;
-			    	String challenge;
-			    	String description;
-			    	String imagelink;
-			    	
-					try {
-						URI uri = new URI(
-				    			"http",
-				    			"alpha.beatyourbucket.com",
-				    			datalist.get(i).get("url").toString(),
-				    			null);
-						
-						firstname = datalist.get(i).get("first_name").toString();
-						lastname = datalist.get(i).get("last_name").toString();
-						challenge = datalist.get(i).get("challenge").toString();
-						description = datalist.get(i).get("description").toString();
-//						time = datalist.get(i).get("description").toString();
-						imagelink = uri.toString();
-						Log.d("link", imagelink);
-						
-						namelist.add(firstname + " " + lastname);
-						urlImages.add(imagelink);
-						infolist.add(challenge + "      " + description);
-						
-					} catch (JSONException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					} catch (URISyntaxException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
+		final GetFromDatabase data = new GetFromDatabase(location, key, value,
+				new onLoadingFinishedListener() {
+
+					@Override
+					public void onLoadingFinished(ArrayList<JSONObject> datalist) {
+						Log.d("data", "hoi");
+						// TODO Auto-generated method stub
+						final ArrayList<String> namelist = new ArrayList<String>();
+						final ArrayList<String> urlImages = new ArrayList<String>();
+						final ArrayList<String> infolist = new ArrayList<String>();
+						Log.d("data", datalist.toString());
+						for (int i = 0; i < datalist.size(); ++i) {
+							String firstname;
+							String lastname;
+							String challenge;
+							String description;
+							String imagelink;
+
+							try {
+								URI uri = new URI("http",
+										"alpha.beatyourbucket.com", datalist
+												.get(i).get("url").toString(),
+										null);
+
+								firstname = datalist.get(i).get("first_name")
+										.toString();
+								lastname = datalist.get(i).get("last_name")
+										.toString();
+								challenge = datalist.get(i).get("challenge")
+										.toString();
+								description = datalist.get(i)
+										.get("description").toString();
+
+								imagelink = uri.toString();
+								Log.d("link", imagelink);
+
+								namelist.add(firstname + " " + lastname);
+								urlImages.add(imagelink);
+								infolist.add(challenge + "      " + description);
+
+							} catch (JSONException e) {
+								e.printStackTrace();
+							} catch (URISyntaxException e) {
+								e.printStackTrace();
+							}
+						}
+						final NewsAdapter adapter = new NewsAdapter(
+								getActivity(), R.layout.layout_bucketlist,
+								namelist, urlImages, infolist);
+						listview.setAdapter(adapter);
 					}
-			    }
-				final NewsAdapter adapter = new NewsAdapter(getActivity(),
-			            R.layout.layout_bucketlist, namelist, urlImages, infolist);
-				listview.setAdapter(adapter);
-			}
-		});
+				});
 		data.execute();
 		return v;
 	}

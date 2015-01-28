@@ -14,41 +14,40 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
-public class NewsAdapter extends ArrayAdapter<String>{
+public class NewsAdapter extends ArrayAdapter<String> {
 	HashMap<String, Integer> hmID = new HashMap<String, Integer>();
 	private final Activity context;
 	private final List<String> name;
 	private final List<String> imageURL;
 	private final List<String> info;
-	
-	public NewsAdapter(Activity context, int viewresourseId, List<String> name, List<String> imageURL, List<String> info) {
-		// TODO Auto-generated constructor stub
-		super (context, viewresourseId, name);
+
+	public NewsAdapter(Activity context, int viewresourseId, List<String> name,
+			List<String> imageURL, List<String> info) {
+		super(context, viewresourseId, name);
 		this.context = context;
 		this.name = name;
 		this.imageURL = imageURL;
 		this.info = info;
 	}
-	
-	@SuppressLint("NewApi") @Override
-	public View getView(int position, View convertview, ViewGroup parent){
-	
+
+	@SuppressLint("NewApi")
+	@Override
+	public View getView(int position, View convertview, ViewGroup parent) {
+
 		LayoutInflater inflater = (LayoutInflater) context
-		        .getSystemService(context.LAYOUT_INFLATER_SERVICE);
-		View viewOfRow=inflater.inflate(R.layout.layout_newslist, parent, false);
+				.getSystemService(context.LAYOUT_INFLATER_SERVICE);
+		View viewOfRow = inflater.inflate(R.layout.layout_newslist, parent,
+				false);
 		TextView textname = (TextView) viewOfRow.findViewById(R.id.textView);
-		ImageView imageView = (ImageView) viewOfRow.findViewById(R.id.imageView);
+		ImageView imageView = (ImageView) viewOfRow
+				.findViewById(R.id.imageView);
 		TextView textinfo = (TextView) viewOfRow.findViewById(R.id.textView2);
 		textname.setText(name.get(position));
-		Picasso.with(context)
-			.load(imageURL.get(position))
-			.fit()
-			.centerCrop()
-			.placeholder(R.drawable.rsz_1rsz_logo_byb_transparent)
-			.into(imageView);
+		Picasso.with(context).load(imageURL.get(position)).fit().centerCrop()
+				.placeholder(R.drawable.rsz_1rsz_logo_byb_transparent)
+				.into(imageView);
 		textinfo.setText(info.get(position));
 		return viewOfRow;
-		
 	}
-	
+
 }

@@ -7,13 +7,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class FragmentCompleting  extends Fragment {
+public class FragmentCompleting extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater,
 			@Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
-		View v = inflater.inflate(R.layout.fragment_completing, container, false);
+		View v = inflater.inflate(R.layout.fragment_completing, container,
+				false);
 		return v;
 	}
 }
-
