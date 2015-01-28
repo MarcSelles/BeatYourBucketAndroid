@@ -1,8 +1,6 @@
 package com.byb.beatyourbucket;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -19,11 +17,14 @@ public class MainScreen extends ActionBarActivity {
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main_screen);
+        setContentView(R.layout.activity_primairy_buttons);
 
         // Hide the actionbar
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
+        
+        getSupportFragmentManager().beginTransaction()
+	    .add(android.R.id.tabcontent, new FragmentNews()).commit();
     }
 	
 	
@@ -42,6 +43,7 @@ public class MainScreen extends ActionBarActivity {
 			Fragment fb = new FragmentProfile();
 			ft.replace(android.R.id.tabcontent, fb);
 		}
+		ft.addToBackStack( "tag" );
 		ft.commit();
 	}
 	
@@ -61,6 +63,7 @@ public class MainScreen extends ActionBarActivity {
 			Log.d("vla", "hodasd");
 			ft.replace(R.id.tabcontent2, fb);
 		}
+		ft.addToBackStack( "tag" );
 		ft.commit();
 	}
 	

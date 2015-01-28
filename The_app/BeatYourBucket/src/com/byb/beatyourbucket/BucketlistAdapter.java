@@ -4,35 +4,25 @@ import java.util.HashMap;
 import java.util.List;
 
 import android.app.Activity;
-import android.graphics.Bitmap;
-import android.graphics.Matrix;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Target;
 
 public class BucketlistAdapter extends ArrayAdapter<String>{
 	HashMap<String, Integer> hmID = new HashMap<String, Integer>();
 	private final Activity context;
-	private final int viewresourseId;
 	private final List<String> objects;
 	private final List<String> imageURL;
-	
-	
 	
 	public BucketlistAdapter(Activity context, int viewresourseId, List<String> objects, List<String> imageURL) {
 		// TODO Auto-generated constructor stub
 		super (context, viewresourseId, objects);
 		this.context = context;
-		this.viewresourseId = viewresourseId;
 		this.objects = objects;
 		this.imageURL = imageURL;
 	}
@@ -42,7 +32,7 @@ public class BucketlistAdapter extends ArrayAdapter<String>{
 	
 		LayoutInflater inflater = (LayoutInflater) context
 		        .getSystemService(context.LAYOUT_INFLATER_SERVICE);
-		View viewOfRow=inflater.inflate(R.layout.bucketlist_layout, parent, false);
+		View viewOfRow=inflater.inflate(R.layout.layout_bucketlist, parent, false);
 		TextView textview = (TextView) viewOfRow.findViewById(R.id.textView);
 		ImageView imageView = (ImageView) viewOfRow.findViewById(R.id.imageView);
 		textview.setText(objects.get(position));
@@ -50,7 +40,6 @@ public class BucketlistAdapter extends ArrayAdapter<String>{
 			.load(imageURL.get(position))
 			.fit()
 			.centerCrop()
-//			.error(errorDrawable)
 			.placeholder(R.drawable.rsz_1rsz_logo_byb_transparent)
 			.into(imageView);
 		return viewOfRow;

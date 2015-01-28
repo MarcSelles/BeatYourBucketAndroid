@@ -5,9 +5,6 @@ import java.util.List;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +17,6 @@ import com.squareup.picasso.Picasso;
 public class NewsAdapter extends ArrayAdapter<String>{
 	HashMap<String, Integer> hmID = new HashMap<String, Integer>();
 	private final Activity context;
-	private final int viewresourseId;
 	private final List<String> name;
 	private final List<String> imageURL;
 	private final List<String> info;
@@ -29,7 +25,6 @@ public class NewsAdapter extends ArrayAdapter<String>{
 		// TODO Auto-generated constructor stub
 		super (context, viewresourseId, name);
 		this.context = context;
-		this.viewresourseId = viewresourseId;
 		this.name = name;
 		this.imageURL = imageURL;
 		this.info = info;
@@ -40,18 +35,15 @@ public class NewsAdapter extends ArrayAdapter<String>{
 	
 		LayoutInflater inflater = (LayoutInflater) context
 		        .getSystemService(context.LAYOUT_INFLATER_SERVICE);
-		View viewOfRow=inflater.inflate(R.layout.newslist_layout, parent, false);
+		View viewOfRow=inflater.inflate(R.layout.layout_newslist, parent, false);
 		TextView textname = (TextView) viewOfRow.findViewById(R.id.textView);
 		ImageView imageView = (ImageView) viewOfRow.findViewById(R.id.imageView);
 		TextView textinfo = (TextView) viewOfRow.findViewById(R.id.textView2);
 		textname.setText(name.get(position));
-//		Drawable myDrawable = context.getDrawable(R.drawable.logo_byb);
-//		Bitmap myLogo = ((BitmapDrawable) myDrawable).getBitmap();
 		Picasso.with(context)
 			.load(imageURL.get(position))
 			.fit()
 			.centerCrop()
-//			.error(errorDrawable)
 			.placeholder(R.drawable.rsz_1rsz_logo_byb_transparent)
 			.into(imageView);
 		textinfo.setText(info.get(position));

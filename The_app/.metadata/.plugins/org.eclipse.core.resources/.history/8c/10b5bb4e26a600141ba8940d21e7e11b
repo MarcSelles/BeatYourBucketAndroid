@@ -1,0 +1,41 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="fill_parent"
+        android:layout_height="0sp"
+        android:layout_weight="0.04"
+        android:background="#DB7343"
+        android:gravity="center"
+        android:text="Beat Your Bucket"
+        android:textColor="#EEEEEE"
+        android:textSize="25sp" />
+    
+    <LinearLayout 
+    android:layout_width="fill_parent"
+    android:layout_height="0sp"
+    android:layout_weight="0.2"
+    android:layout_gravity="center">
+
+    <com.facebook.widget.LoginButton
+        android:id="@+id/authButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        />
+    </LinearLayout>
+    
+    <TextView
+        android:id="@+id/info"
+		 android:layout_width="fill_parent"
+		 android:layout_height="0sp"
+		 android:layout_weight="0.2"
+		 android:textSize="15sp"
+		 android:gravity="center"
+		 android:text="Voor gebruik, eerst een account aanmaken via de site alpha.beatyourbucket.nl!!!" />
+
+</LinearLayout>

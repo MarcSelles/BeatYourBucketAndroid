@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="android.os.Bundle"/>
-<fullyQualifiedTypeName name="android.R"/>
-<fullyQualifiedTypeName name="android.R.id"/>
-<fullyQualifiedTypeName name="android.support.v7.app.ActionBar.TabListener"/>
-<fullyQualifiedTypeName name="android.app.ActionBar.TabListener"/>
 <fullyQualifiedTypeName name="android.support.v4.app.FragmentTabHost"/>
 <fullyQualifiedTypeName name="android.support.v7.app.ActionBar.Tab"/>
 <fullyQualifiedTypeName name="com.byb.beatyourbucket.FragmentBucket"/>
-<fullyQualifiedTypeName name="com.byb.beatyourbucket.FragmentNews"/>
 <fullyQualifiedTypeName name="com.byb.beatyourbucket.FragmentProfile"/>
 <fullyQualifiedTypeName name="com.byb.beatyourbucket.FragmentCompleting"/>
 <fullyQualifiedTypeName name="android.os.AsyncTask"/>
@@ -60,4 +54,10 @@
 <fullyQualifiedTypeName name="com.byb.beatyourbucket.FragmentNews.NewsComparator"/>
 <fullyQualifiedTypeName name="com.byb.beatyourbucket.R.drawable"/>
 <fullyQualifiedTypeName name="android.graphics.BitmapFactory"/>
+<fullyQualifiedTypeName name="com.byb.beatyourbucket.FragmentNews"/>
+<fullyQualifiedTypeName name="com.byb.beatyourbucket.FragmentChallenges"/>
+<fullyQualifiedTypeName name="android.widget.TextView"/>
+<fullyQualifiedTypeName name="com.byb.beatyourbucket.NewsAdapter"/>
+<fullyQualifiedTypeName name="com.facebook.android.Facebook"/>
+<fullyQualifiedTypeName name="android.graphics.Bitmap"/>
 </qualifiedTypeNameHistroy>

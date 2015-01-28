@@ -1,6 +1,22 @@
 package com.byb.beatyourbucket;
 
+import java.net.URI;
 import java.util.Arrays;
+
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.net.Uri;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.facebook.Request;
 import com.facebook.Response;
@@ -9,31 +25,40 @@ import com.facebook.SessionState;
 import com.facebook.UiLifecycleHelper;
 import com.facebook.model.GraphUser;
 import com.facebook.widget.LoginButton;
-
-import android.support.v4.app.Fragment;
-import android.content.Intent;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import com.squareup.picasso.Picasso;
 
 public class FragmentProfile  extends Fragment {
 	private UiLifecycleHelper uiHelper;
 	private static final String TAG = "Uitloggen";
-
-
+	
 	@Override
 	public View onCreateView(LayoutInflater inflater,
 			@Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
-		View v = inflater.inflate(R.layout.tab3_view, container, false);
+		
+		View v = inflater.inflate(R.layout.fragment_profile, container, false);
 		
 		LoginButton authButton = (LoginButton) v.findViewById(R.id.authButton);
 	    authButton.setFragment(this);
 	    authButton.setReadPermissions(Arrays.asList("public_profile"));
-		
+	    
+	    TextView textview = (TextView) v.findViewById(R.id.nameview);
+	    SharedPreferences preferences = getActivity().getSharedPreferences("pref", Context.MODE_PRIVATE);
+	    String username = preferences.getString("profileName", "empty");
+	    textview.setText(username);
+	    
+	    String userID = preferences.getString("user_ID", "735154943247882");
+	    ImageView userpicture=(ImageView) v.findViewById(R.id.imageView);
+	    String img_value = null;
+	  	img_value = new String("https://graph.facebook.com/" + userID + "/picture?type=large");
+	    Log.d("URL", img_value);
+	  	
+	    Picasso.with(getActivity())
+		.load(img_value)
+		.fit()
+		.centerCrop()
+		.placeholder(R.drawable.rsz_1rsz_logo_byb_transparent)
+		.into(userpicture);
+	    
 		return v;
 	}
 	
@@ -81,11 +106,8 @@ public class FragmentProfile  extends Fragment {
 	        Intent intent = new Intent(getActivity(), MainActivity.class);
 	        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 	        startActivity(intent);
-//	        finish();
 	    }
-	    
 	}
-	
 
 	@Override
 	public void onResume() {
@@ -117,3 +139,21 @@ public class FragmentProfile  extends Fragment {
 	    uiHelper.onSaveInstanceState(outState);
 	}
 }
+
+
+//SharedPreferences preferences = getActivity().getSharedPreferences("pref", Context.MODE_PRIVATE);
+//String userID = preferences.getString("user_ID", "empty");
+//Log.d("error", userID);
+//ImageView userpicture=(ImageView) v.findViewById(R.id.imageView);
+//URL img_value = null;
+//try {
+//	img_value = new URL("http://graph.facebook.com/" + userID + "/picture?type=large");
+//	Bitmap mIcon1 = BitmapFactory.decodeStream(img_value.openConnection().getInputStream());
+//	userpicture.setImageBitmap(mIcon1);
+//} catch (MalformedURLException e) {
+//	// TODO Auto-generated catch block
+//	e.printStackTrace();
+//} catch (IOException e) {
+//	// TODO Auto-generated catch block
+//	e.printStackTrace();
+//}

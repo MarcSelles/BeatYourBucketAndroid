@@ -81,7 +81,6 @@ class GetFromDatabase extends AsyncTask<Void, Integer, String>{
 	        
 	     // Execute HTTP Post Request
 	        HttpResponse response = httpclient.execute(httppost);
-	        Log.d("EEEntity", response.toString());
 	        jstring = EntityUtils.toString(response.getEntity());
 	        Log.d("entity", jstring);
 	        
