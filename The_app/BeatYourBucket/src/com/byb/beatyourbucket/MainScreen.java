@@ -9,6 +9,10 @@ import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.View;
 
+/* Activity that will make
+ * all the buttons and creates
+ * the update fragment 
+ */
 public class MainScreen extends ActionBarActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
