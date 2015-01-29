@@ -22,6 +22,10 @@ import com.facebook.model.GraphUser;
 import com.facebook.widget.LoginButton;
 import com.squareup.picasso.Picasso;
 
+/* Fragment of the Profile tab.
+ * Ensures that the information of the user
+ * will show up
+ */
 public class FragmentProfile extends Fragment {
 	private UiLifecycleHelper uiHelper;
 
