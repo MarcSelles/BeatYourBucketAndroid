@@ -19,6 +19,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
+/* Fragment of the Update tab.
+ * Ensures that all completed challenges will show up
+ */
 public class FragmentNews extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater,
