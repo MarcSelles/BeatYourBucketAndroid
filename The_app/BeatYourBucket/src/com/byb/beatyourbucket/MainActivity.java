@@ -4,6 +4,9 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 
+/* Activity that will start the Facebook
+ * Login fragment
+ */
 public class MainActivity extends FragmentActivity {
 	private MainFragment mainFragment;
 	SharedPreferences preferences;
