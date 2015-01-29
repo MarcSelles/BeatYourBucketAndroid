@@ -19,6 +19,10 @@ import com.facebook.UiLifecycleHelper;
 import com.facebook.model.GraphUser;
 import com.facebook.widget.LoginButton;
 
+/* Fragment of the Login class.
+ * Ensures that the user has to login
+ * before going further
+ */
 public class MainFragment extends Fragment {
 	private UiLifecycleHelper uiHelper;
 	private String user_ID;
