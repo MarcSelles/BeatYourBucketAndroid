@@ -17,6 +17,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
+/* Fragment of the Completed challenges tab.
+ * Ensures that the challenges will show up
+ * which are completed by one of the bucketlist members
+ */
 public class FragmentCompleted extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater,
