@@ -16,6 +16,10 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+/* Fragment of the Score tab.
+ * Ensures that the score of all users will show up
+ * for one bucketlist.
+ */
 public class FragmentScore extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater,
