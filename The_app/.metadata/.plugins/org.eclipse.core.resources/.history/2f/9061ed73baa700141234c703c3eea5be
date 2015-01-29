@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string name="app_name">Beat Your Bucket</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_list">ListActivity</string>
+    
+    <string-array name="buckets">
+        <item>bucket1</item>
+        <item>bucket2</item>
+        <item >Bucket3</item>
+        <item >Bucket4</item>
+        <item >Bucket5</item>
+        <item>bucket1</item>
+        <item>bucket2</item>
+        <item >Bucket3</item>
+        <item >Bucket4</item>
+        <item >Bucket5</item>
+        <item>bucket1</item>
+        <item>bucket2</item>
+        <item >Bucket3</item>
+        <item >Bucket4</item>
+        <item >Bucket5</item>
+    </string-array>
+    
+    <string-array name="challenges">
+        <item>Challenge 1</item>
+        <item>Challenge 2</item>
+        <item >Challenge 3</item>
+        <item >Challenge 4</item>
+        <item >Challenge 5</item>
+    </string-array>
+    <string name="facebook_app_id">340997646095711</string>
+
+    <string name="byb">Beat Your Bucket</string>
+    <string name="no_account">Indien nog geen account, eerst een account aanmaken via de site alpha.beatyourbucket.nl</string>
+    <string name="buckets">Bucketlists</string>
+    <string name="updates">Updates</string>
+    <string name="profile">Profiel</string>
+    <string name="challenges">Challenges</string>
+    <string name="completed">Voltooid</string>
+    <string name="score">Stand</string>
+    <string name="profilepicture">Profielfoto</string>
+
+</resources>

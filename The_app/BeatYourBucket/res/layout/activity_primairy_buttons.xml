@@ -26,37 +26,36 @@
             android:id="@+id/bucketlists"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
-            android:layout_weight="0.33"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal|center"
-            android:onClick="makeTabs"
-            android:text="Bucketlists"
+            android:layout_weight="0.33"
             android:background="#DB7343"
+            android:onClick="makeTabs"
+            android:text="@string/buckets"
             android:textColor="#EEEEEE" />
 
         <Button
             android:id="@+id/newsfeed"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
-            android:layout_weight="0.33"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal|center"
-            android:onClick="makeTabs"
-            android:text="Updates"
+            android:layout_weight="0.33"
             android:background="#DB7343"
-            android:textColor="#EEEEEE"
-             />
+            android:onClick="makeTabs"
+            android:text="@string/updates"
+            android:textColor="#EEEEEE" />
 
         <Button
             android:id="@+id/profile"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
-            android:layout_weight="0.33"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal|center"
-            android:onClick="makeTabs"
-            android:text="Profiel"
+            android:layout_weight="0.33"
             android:background="#DB7343"
+            android:onClick="makeTabs"
+            android:text="@string/profile"
             android:textColor="#EEEEEE" />
     </LinearLayout>
 

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="facebook_app_id">340997646095711</string>
+    <string name="byb">Beat Your Bucket</string>
+    <string name="no_account">Indien nog geen account, eerst een account aanmaken via de site alpha.beatyourbucket.nl</string>
+    <string name="buckets">Bucketlists</string>
+    <string name="updates">Updates</string>
+    <string name="profile">Profiel</string>
+    <string name="challenges">Challenges</string>
+    <string name="completed">Voltooid</string>
+    <string name="score">Stand</string>
+    <string name="profilepicture">Profielfoto</string>
+
+</resources>
