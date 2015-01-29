@@ -20,6 +20,9 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.widget.Toast;
 
+/* Class to get all the data needed
+ * for a fragment
+ */
 class GetFromDatabase extends AsyncTask<Void, Integer, String> {
 
 	private ArrayList<JSONObject> list;
