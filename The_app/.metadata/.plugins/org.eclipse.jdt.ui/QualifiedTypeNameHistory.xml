@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="android.support.v7.app.ActionBar.Tab"/>
-<fullyQualifiedTypeName name="com.byb.beatyourbucket.FragmentBucket"/>
-<fullyQualifiedTypeName name="com.byb.beatyourbucket.FragmentProfile"/>
-<fullyQualifiedTypeName name="com.byb.beatyourbucket.FragmentCompleting"/>
 <fullyQualifiedTypeName name="android.os.AsyncTask"/>
 <fullyQualifiedTypeName name="android.widget.EditText"/>
 <fullyQualifiedTypeName name="android.widget.Toast"/>
@@ -42,7 +38,6 @@
 <fullyQualifiedTypeName name="java.lang.String"/>
 <fullyQualifiedTypeName name="com.squareup.picasso.Picasso"/>
 <fullyQualifiedTypeName name="android.graphics.Matrix"/>
-<fullyQualifiedTypeName name="android.util.Log"/>
 <fullyQualifiedTypeName name="com.squareup.picasso.Target"/>
 <fullyQualifiedTypeName name="java.net.URI"/>
 <fullyQualifiedTypeName name="java.util.Comparator"/>
@@ -60,4 +55,9 @@
 <fullyQualifiedTypeName name="android.widget.ListView"/>
 <fullyQualifiedTypeName name="android.support.v7.appcompat.R.id"/>
 <fullyQualifiedTypeName name="com.byb.beatyourbucket.R.id"/>
+<fullyQualifiedTypeName name="android.R"/>
+<fullyQualifiedTypeName name="java.lang.Exception"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="android.util.Log"/>
+<fullyQualifiedTypeName name="com.byb.beatyourbucket.ShowPopUp"/>
 </qualifiedTypeNameHistroy>
