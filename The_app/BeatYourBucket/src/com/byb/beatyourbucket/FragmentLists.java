@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+/* Fragment which will start when logged in
+ */
 public class FragmentLists extends Fragment {
 
 	@Override
