@@ -1,9 +1,0 @@
-package com.byb.beatyourbucket;
-
-import android.support.v4.app.Fragment;
-import android.view.View;
-
-public class FragmentChallenges extends Fragment {
-	View v = inflater.inflate(R.layout.fragment_challenges, container, false);
-	return v;
-}

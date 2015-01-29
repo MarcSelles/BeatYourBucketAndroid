@@ -1,7 +1,0 @@
-package com.byb.beatyourbucket;
-
-import android.widget.ArrayAdapter;
-
-public class BucketlistAdapter extends ArrayAdapter<JSONObject>{
-
-}
