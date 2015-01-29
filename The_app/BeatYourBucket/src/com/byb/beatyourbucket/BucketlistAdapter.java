@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+/* Adapter for setting the data of a Bucketlist
+ * This class is used for showing the bucketlists and score*/
 public class BucketlistAdapter extends ArrayAdapter<String> {
 	private final Activity context;
 	private final List<String> objects;
