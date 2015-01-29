@@ -1,7 +1,5 @@
 package com.byb.beatyourbucket;
 
-import java.util.Arrays;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -30,30 +28,31 @@ public class FragmentProfile extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater,
 			@Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
 		View v = inflater.inflate(R.layout.fragment_profile, container, false);
-
+		// Initiate the Facebook logout button
 		LoginButton authButton = (LoginButton) v.findViewById(R.id.authButton);
 		authButton.setFragment(this);
-		authButton.setReadPermissions(Arrays.asList("public_profile"));
 
+		// Find the imageview and textview of the fragment
+		ImageView userpicture = (ImageView) v.findViewById(R.id.imageView);
 		TextView textview = (TextView) v.findViewById(R.id.nameview);
+
+		// Get the name and ID of user from the shared preferences
 		SharedPreferences preferences = getActivity().getSharedPreferences(
 				"pref", Context.MODE_PRIVATE);
-		String username = preferences.getString("profileName", "empty");
+		String username = preferences.getString("profileName", null);
+		String userID = preferences.getString("user_ID", null);
+
+		// Set the name of the user in the textview
 		textview.setText(username);
 
-		String userID = preferences.getString("user_ID", "735154943247882");
-		ImageView userpicture = (ImageView) v.findViewById(R.id.imageView);
+		// Set the image of the user in the imageview
 		String img_value = null;
 		img_value = new String("https://graph.facebook.com/" + userID
 				+ "/picture?type=large");
-		Log.d("URL", img_value);
-
 		Picasso.with(getActivity()).load(img_value).fit().centerCrop()
 				.placeholder(R.drawable.rsz_1rsz_logo_byb_transparent)
 				.into(userpicture);
-
 		return v;
 	}
 
@@ -62,7 +61,6 @@ public class FragmentProfile extends Fragment {
 		super.onCreate(savedInstanceState);
 		uiHelper = new UiLifecycleHelper(getActivity(), callback);
 		uiHelper.onCreate(savedInstanceState);
-
 	}
 
 	private Session.StatusCallback callback = new Session.StatusCallback() {
@@ -82,12 +80,6 @@ public class FragmentProfile extends Fragment {
 								// If the response is successful
 								if (session == Session.getActiveSession()) {
 									if (user != null) {
-										String user_ID = user.getId();// user id
-										String profileName = user.getName();// user's
-																			// profile
-																			// name
-										Log.d("hoi", user_ID);
-										Log.d("hoi", profileName);
 									}
 								}
 							}
@@ -99,6 +91,7 @@ public class FragmentProfile extends Fragment {
 
 	private void onSessionStateChange(Session session, SessionState state,
 			Exception exception) {
+		// When logged out, return to the main activity
 		if (state.isClosed()) {
 			Intent intent = new Intent(getActivity(), MainActivity.class);
 			intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK

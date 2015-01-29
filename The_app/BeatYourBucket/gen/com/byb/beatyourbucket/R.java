@@ -1946,7 +1946,6 @@ containing a value of this type.
         public static final int box_count=0x7f050005;
         public static final int bucketlists=0x7f05004e;
         public static final int button=0x7f050004;
-        public static final int button1=0x7f050075;
         public static final int center=0x7f050009;
         public static final int challenges=0x7f05006c;
         public static final int checkbox=0x7f050034;
@@ -1982,8 +1981,6 @@ containing a value of this type.
         public static final int dialog=0x7f05001b;
         public static final int disableHome=0x7f050015;
         public static final int dropdown=0x7f05001c;
-        public static final int editText1=0x7f050072;
-        public static final int editText2=0x7f050074;
         public static final int edit_query=0x7f05003e;
         public static final int end=0x7f05001f;
         public static final int expand_activities_button=0x7f05002d;
@@ -1993,7 +1990,7 @@ containing a value of this type.
         public static final int icon=0x7f050031;
         public static final int ifRoom=0x7f050017;
         public static final int image=0x7f05002e;
-        public static final int imageView=0x7f050076;
+        public static final int imageView=0x7f050070;
         public static final int info=0x7f05004c;
         public static final int inline=0x7f050007;
         public static final int large=0x7f050002;
@@ -2001,20 +1998,20 @@ containing a value of this type.
         public static final int listMode=0x7f05000d;
         public static final int list_item=0x7f050030;
         public static final int middle=0x7f05001e;
-        public static final int nameview=0x7f050077;
+        public static final int nameview=0x7f050071;
         public static final int never=0x7f050016;
         public static final int newsfeed=0x7f05004f;
         public static final int none=0x7f05000f;
         public static final int normal=0x7f050001;
         public static final int picker_subtitle=0x7f050060;
-        public static final int positions=0x7f050079;
+        public static final int positions=0x7f050074;
         public static final int profile=0x7f050050;
         public static final int progress_circular=0x7f050027;
         public static final int progress_horizontal=0x7f050028;
         public static final int radio=0x7f050036;
         public static final int right=0x7f05000b;
         public static final int score=0x7f05006e;
-        public static final int scorelist=0x7f050078;
+        public static final int scorelist=0x7f050072;
         public static final int search_badge=0x7f050040;
         public static final int search_bar=0x7f05003f;
         public static final int search_button=0x7f050041;
@@ -2038,9 +2035,7 @@ containing a value of this type.
         public static final int tab_upper=0x7f05006b;
         public static final int tabcontent2=0x7f05006f;
         public static final int textView=0x7f05004a;
-        public static final int textView1=0x7f050070;
-        public static final int textView2=0x7f050071;
-        public static final int textView3=0x7f050073;
+        public static final int textView2=0x7f050073;
         public static final int title=0x7f050032;
         public static final int top=0x7f050008;
         public static final int up=0x7f050021;
@@ -2118,13 +2113,12 @@ containing a value of this type.
         public static final int fragment_challenge_buttons=0x7f030029;
         public static final int fragment_challenges=0x7f03002a;
         public static final int fragment_completed=0x7f03002b;
-        public static final int fragment_completing=0x7f03002c;
-        public static final int fragment_news=0x7f03002d;
-        public static final int fragment_profile=0x7f03002e;
-        public static final int fragment_score=0x7f03002f;
-        public static final int layout_bucketlist=0x7f030030;
-        public static final int layout_newslist=0x7f030031;
-        public static final int support_simple_spinner_dropdown_item=0x7f030032;
+        public static final int fragment_news=0x7f03002c;
+        public static final int fragment_profile=0x7f03002d;
+        public static final int fragment_score=0x7f03002e;
+        public static final int layout_bucketlist=0x7f03002f;
+        public static final int layout_newslist=0x7f030030;
+        public static final int support_simple_spinner_dropdown_item=0x7f030031;
     }
     public static final class menu {
         public static final int list=0x7f0d0000;

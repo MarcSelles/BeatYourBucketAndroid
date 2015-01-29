@@ -44,7 +44,8 @@
             android:onClick="makeTabs"
             android:text="Updates"
             android:background="#DB7343"
-            android:textColor="#EEEEEE" />
+            android:textColor="#EEEEEE"
+             />
 
         <Button
             android:id="@+id/profile"

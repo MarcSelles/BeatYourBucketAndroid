@@ -18,7 +18,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.os.AsyncTask;
-import android.util.Log;
 
 class GetFromDatabase extends AsyncTask<Void, Integer, String> {
 
@@ -42,11 +41,11 @@ class GetFromDatabase extends AsyncTask<Void, Integer, String> {
 	}
 
 	protected void onPostExecute(String result) {
+		// Create a list with JSONObject inside
 		list = new ArrayList<JSONObject>();
-		Log.d("loggin", "hoi");
 		try {
 			JSONArray jsonarray = new JSONArray(result);
-
+			// Set all the JSONObjects in the list
 			for (int i = 0; i < jsonarray.length(); i++) {
 				JSONObject jsonobject = jsonarray.getJSONObject(i);
 				list.add(jsonobject);
@@ -55,7 +54,6 @@ class GetFromDatabase extends AsyncTask<Void, Integer, String> {
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
-
 	}
 
 	public String GetBucketData(String location, String key, String value) {
@@ -65,8 +63,6 @@ class GetFromDatabase extends AsyncTask<Void, Integer, String> {
 		HttpClient httpclient = new DefaultHttpClient();
 		HttpPost httppost = new HttpPost("http://alpha.beatyourbucket.com/api/"
 				+ location);
-		Log.d("ksad", "http://alpha.beatyourbucket.com/api/" + location);
-
 		try {
 			// Add your data
 			List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
@@ -76,12 +72,9 @@ class GetFromDatabase extends AsyncTask<Void, Integer, String> {
 			// Execute HTTP Post Request
 			HttpResponse response = httpclient.execute(httppost);
 			jstring = EntityUtils.toString(response.getEntity());
-			Log.d("entity", jstring);
-
 		} catch (ClientProtocolException e) {
 		} catch (IOException e) {
 		}
-
 		return jstring;
 	}
 }

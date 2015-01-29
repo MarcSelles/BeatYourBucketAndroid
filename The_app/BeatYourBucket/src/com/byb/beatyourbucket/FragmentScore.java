@@ -20,25 +20,28 @@ public class FragmentScore extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater,
 			@Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		View v = inflater.inflate(R.layout.fragment_score, container, false);
-
-		SharedPreferences preferences = getActivity().getSharedPreferences(
-				"pref", Context.MODE_PRIVATE);
-		String bucketid = preferences.getString("bucketID", "empty");
-
+		// Find the listviews of the fragment
 		final ListView listview = (ListView) v.findViewById(android.R.id.list);
 		final ListView scoreview = (ListView) v.findViewById(R.id.scorelist);
 
+		// Get the Bucket ID from the shared preferences
+		SharedPreferences preferences = getActivity().getSharedPreferences(
+				"pref", Context.MODE_PRIVATE);
+		String bucketid = preferences.getString("bucketID", null);
+
+		// Set the location of the php file and the POST variables needed for
+		// the data
 		String location = "usersforbucketlist.php";
 		String key = "bucketlist_id";
 		String value = bucketid;
 
 		final GetFromDatabase data = new GetFromDatabase(location, key, value,
 				new onLoadingFinishedListener() {
-
 					@Override
 					public void onLoadingFinished(ArrayList<JSONObject> datalist) {
+						// Initiate the Arraylists of the content of the
+						// listviews
 						final ArrayList<String> names = new ArrayList<String>();
 						final ArrayList<String> scorelist = new ArrayList<String>();
 						for (int i = 0; i < datalist.size(); ++i) {
@@ -46,6 +49,8 @@ public class FragmentScore extends Fragment {
 							String number;
 							String score;
 							try {
+								// Getting the score and name of the users of
+								// the bucket
 								score = datalist.get(i).get("points")
 										.toString();
 								number = String.valueOf(i + 1);
@@ -54,13 +59,14 @@ public class FragmentScore extends Fragment {
 										+ " "
 										+ datalist.get(i).get("last_name")
 												.toString();
+								// Add the data to the lists
 								names.add(number + ". " + name);
 								scorelist.add("Score: " + score);
 							} catch (JSONException e) {
 								e.printStackTrace();
 							}
 						}
-
+						// Make and set the adapters to the listviews
 						final ArrayAdapter<String> adapter = new ArrayAdapter<String>(
 								getActivity(),
 								android.R.layout.simple_list_item_1, names);
@@ -70,11 +76,10 @@ public class FragmentScore extends Fragment {
 								getActivity(),
 								android.R.layout.simple_list_item_1, scorelist);
 						scoreview.setAdapter(adapterscore);
-
 					}
 				});
+		// Execute the getfromdatabase function
 		data.execute();
-
 		return v;
 	}
 }

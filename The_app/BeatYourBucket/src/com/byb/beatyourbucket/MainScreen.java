@@ -19,6 +19,7 @@ public class MainScreen extends ActionBarActivity {
 		ActionBar actionBar = getSupportActionBar();
 		actionBar.hide();
 
+		// Create the fragment
 		getSupportFragmentManager().beginTransaction()
 				.add(android.R.id.tabcontent, new FragmentNews()).commit();
 	}
@@ -26,6 +27,7 @@ public class MainScreen extends ActionBarActivity {
 	public void makeTabs(View v) {
 		FragmentManager fm = getSupportFragmentManager();
 		FragmentTransaction ft = fm.beginTransaction();
+		// Start the right fragment on the right buttonclick
 		if (v.getId() == R.id.bucketlists) {
 			Fragment fb = new FragmentBucket();
 			ft.replace(android.R.id.tabcontent, fb);
@@ -43,6 +45,7 @@ public class MainScreen extends ActionBarActivity {
 	public void makeTabs2(View v) {
 		FragmentManager fm = getSupportFragmentManager();
 		FragmentTransaction ft = fm.beginTransaction();
+		// Start the right fragment on the right buttonclick
 		if (v.getId() == R.id.challenges) {
 			Fragment fb = new FragmentChallenges();
 			ft.replace(R.id.tabcontent2, fb);
@@ -57,20 +60,4 @@ public class MainScreen extends ActionBarActivity {
 		ft.addToBackStack("tag");
 		ft.commit();
 	}
-
-	@Override
-	public void onStart() {
-		super.onStart();
-	}
-
-	@Override
-	public void onResume() {
-		super.onResume();
-	}
-
-	@Override
-	public void onPause() {
-		super.onPause();
-	}
-
 }

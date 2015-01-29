@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +20,6 @@ import com.facebook.model.GraphUser;
 import com.facebook.widget.LoginButton;
 
 public class MainFragment extends Fragment {
-	private static final String TAG = "MainFragment";
 	private UiLifecycleHelper uiHelper;
 	private String user_ID;
 
@@ -29,12 +27,12 @@ public class MainFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.activity_main, container, false);
-
+		// Initiate the Facebook logout button
 		LoginButton authButton = (LoginButton) view
 				.findViewById(R.id.authButton);
 		authButton.setFragment(this);
+		// Get permission to get access to the user's email
 		authButton.setReadPermissions((Arrays.asList("email")));
-
 		return view;
 	}
 
@@ -65,9 +63,11 @@ public class MainFragment extends Fragment {
 										String profileName = user.getName();// user's
 																			// profile
 																			// name
-										String EMAIL = (String) user.asMap()
+										String EMAIL = (String) user.asMap()// user's
+																			// email
 												.get("email");
 
+										// Store data in shared preferences
 										SharedPreferences preferences = getActivity()
 												.getSharedPreferences("pref",
 														Context.MODE_PRIVATE);
@@ -79,9 +79,6 @@ public class MainFragment extends Fragment {
 										editor.putString("profileName",
 												profileName);
 										editor.commit();
-
-										Log.d("hoi", user_ID);
-										Log.d("hoi", profileName);
 									}
 								}
 							}
@@ -93,11 +90,9 @@ public class MainFragment extends Fragment {
 
 	private void onSessionStateChange(Session session, SessionState state,
 			Exception exception) {
+		// When logged in, start a new intent
 		if (state.isOpened()) {
-			Log.i(TAG, "Logged in...");
-
 			Intent intent = new Intent(getActivity(), MainScreen.class);
-
 			intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
 					| Intent.FLAG_ACTIVITY_CLEAR_TASK);
 			startActivity(intent);

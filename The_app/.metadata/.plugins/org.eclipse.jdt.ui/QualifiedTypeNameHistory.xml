@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="android.support.v4.app.FragmentTabHost"/>
 <fullyQualifiedTypeName name="android.support.v7.app.ActionBar.Tab"/>
 <fullyQualifiedTypeName name="com.byb.beatyourbucket.FragmentBucket"/>
 <fullyQualifiedTypeName name="com.byb.beatyourbucket.FragmentProfile"/>
@@ -28,8 +27,6 @@
 <fullyQualifiedTypeName name="com.byb.beatyourbucket.GetFromDatabase"/>
 <fullyQualifiedTypeName name="com.byb.beatyourbucket.BucketlistAdapter"/>
 <fullyQualifiedTypeName name="android.support.v4.app.ListFragment"/>
-<fullyQualifiedTypeName name="android.widget.ListView"/>
-<fullyQualifiedTypeName name="com.byb.beatyourbucket.R.id"/>
 <fullyQualifiedTypeName name="android.support.v4.app.FragmentManager"/>
 <fullyQualifiedTypeName name="android.support.v4.app.FragmentTransaction"/>
 <fullyQualifiedTypeName name="android.support.v4.app.Fragment"/>
@@ -60,4 +57,7 @@
 <fullyQualifiedTypeName name="com.byb.beatyourbucket.NewsAdapter"/>
 <fullyQualifiedTypeName name="com.facebook.android.Facebook"/>
 <fullyQualifiedTypeName name="android.graphics.Bitmap"/>
+<fullyQualifiedTypeName name="android.widget.ListView"/>
+<fullyQualifiedTypeName name="android.support.v7.appcompat.R.id"/>
+<fullyQualifiedTypeName name="com.byb.beatyourbucket.R.id"/>
 </qualifiedTypeNameHistroy>

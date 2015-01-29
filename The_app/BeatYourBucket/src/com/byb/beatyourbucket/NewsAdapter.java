@@ -1,6 +1,5 @@
 package com.byb.beatyourbucket;
 
-import java.util.HashMap;
 import java.util.List;
 
 import android.annotation.SuppressLint;
@@ -15,7 +14,6 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
 public class NewsAdapter extends ArrayAdapter<String> {
-	HashMap<String, Integer> hmID = new HashMap<String, Integer>();
 	private final Activity context;
 	private final List<String> name;
 	private final List<String> imageURL;
@@ -38,10 +36,12 @@ public class NewsAdapter extends ArrayAdapter<String> {
 				.getSystemService(context.LAYOUT_INFLATER_SERVICE);
 		View viewOfRow = inflater.inflate(R.layout.layout_newslist, parent,
 				false);
+		// Find the textviews and the imageview of the item in the list
 		TextView textname = (TextView) viewOfRow.findViewById(R.id.textView);
 		ImageView imageView = (ImageView) viewOfRow
 				.findViewById(R.id.imageView);
 		TextView textinfo = (TextView) viewOfRow.findViewById(R.id.textView2);
+		// Set the textview and the imageview of the item in the list
 		textname.setText(name.get(position));
 		Picasso.with(context).load(imageURL.get(position)).fit().centerCrop()
 				.placeholder(R.drawable.rsz_1rsz_logo_byb_transparent)
@@ -49,5 +49,4 @@ public class NewsAdapter extends ArrayAdapter<String> {
 		textinfo.setText(info.get(position));
 		return viewOfRow;
 	}
-
 }

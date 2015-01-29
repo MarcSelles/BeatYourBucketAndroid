@@ -12,11 +12,11 @@ public class FragmentLists extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater,
 			@Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-		// Make the tabmenu
-
+		// Create the upper tabmenu
 		View v = inflater.inflate(R.layout.fragment_challenge_buttons,
 				container, false);
 
+		// Create the Challenges fragement
 		getFragmentManager().beginTransaction()
 				.add(R.id.tabcontent2, new FragmentChallenges()).commit();
 

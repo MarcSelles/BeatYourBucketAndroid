@@ -14,7 +14,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,23 +24,30 @@ public class FragmentNews extends Fragment {
 	public View onCreateView(LayoutInflater inflater,
 			@Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.fragment_news, container, false);
-
+		// Find the listview of the fragment
 		final ListView listview = (ListView) v.findViewById(android.R.id.list);
 
+		// Get the Email Address of the user from the shared preferences
 		SharedPreferences preferences = getActivity().getSharedPreferences(
 				"pref", Context.MODE_PRIVATE);
-		String mail = preferences.getString("mail", "hoi");
+		String mail = preferences.getString("mail", null);
 
+		// Set the location of the php file and the POST variables needed for
+		// the data
 		String location = "updatesforuser.php";
 		String key = "email";
 		String value = mail;
 
 		final GetFromDatabase data = new GetFromDatabase(location, key, value,
 				new onLoadingFinishedListener() {
-
 					@Override
 					public void onLoadingFinished(ArrayList<JSONObject> datalist) {
+						// Sort the datalist on timestamp, so that the newest
+						// posts
+						// will be seen first
 						Collections.sort(datalist, new NewsComparator());
+						// Initiate the Arraylists of the content of the
+						// listview
 						final ArrayList<String> namelist = new ArrayList<String>();
 						final ArrayList<String> urlImages = new ArrayList<String>();
 						final ArrayList<String> infolist = new ArrayList<String>();
@@ -51,13 +57,17 @@ public class FragmentNews extends Fragment {
 							String challenge;
 							String description;
 							String imagelink;
-
 							try {
+								// Make sure the http is in the right setup to
+								// get the image
 								URI uri = new URI("http",
 										"alpha.beatyourbucket.com", datalist
 												.get(i).get("url").toString(),
 										null);
+								// Get the image link
+								imagelink = uri.toString();
 
+								// Getting the right content from the datalist
 								firstname = datalist.get(i).get("first_name")
 										.toString();
 								lastname = datalist.get(i).get("last_name")
@@ -66,31 +76,30 @@ public class FragmentNews extends Fragment {
 										.toString();
 								description = datalist.get(i)
 										.get("description").toString();
-								imagelink = uri.toString();
-								Log.d("link", imagelink);
 
+								// Add the data to the lists
 								namelist.add(firstname + " " + lastname);
 								urlImages.add(imagelink);
 								infolist.add(challenge + "      " + description);
-
 							} catch (JSONException e) {
 								e.printStackTrace();
 							} catch (URISyntaxException e) {
 								e.printStackTrace();
 							}
-
 						}
+						// Make and set the adapter to the listview
 						final NewsAdapter adapter = new NewsAdapter(
 								getActivity(), R.layout.layout_bucketlist,
 								namelist, urlImages, infolist);
 						listview.setAdapter(adapter);
 					}
 				});
+		// Execute the getfromdatabase function
 		data.execute();
-
 		return v;
 	}
 
+	// Class to sort the timestamp
 	private class NewsComparator implements Comparator<JSONObject> {
 		@Override
 		public int compare(JSONObject o1, JSONObject o2) {
