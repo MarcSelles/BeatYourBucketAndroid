@@ -13,6 +13,9 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+/* Adapter for setting the data of a updates
+ * This class is used for showing the updates and the completed challenges
+*/
 public class NewsAdapter extends ArrayAdapter<String> {
 	private final Activity context;
 	private final List<String> name;
