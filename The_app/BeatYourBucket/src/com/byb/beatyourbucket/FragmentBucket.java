@@ -22,6 +22,9 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+/* Fragment of the Bucketlists tab.
+ * Ensures that the bucketlists will show up
+ */
 public class FragmentBucket extends ListFragment {
 	// Make a Hashmap to make sure the right id will be given to the new
 	// fragment
