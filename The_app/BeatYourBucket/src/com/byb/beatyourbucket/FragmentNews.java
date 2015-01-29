@@ -38,64 +38,73 @@ public class FragmentNews extends Fragment {
 		String key = "email";
 		String value = mail;
 
-		final GetFromDatabase data = new GetFromDatabase(location, key, value,
-				new onLoadingFinishedListener() {
-					@Override
-					public void onLoadingFinished(ArrayList<JSONObject> datalist) {
-						// Sort the datalist on timestamp, so that the newest
-						// posts
-						// will be seen first
-						Collections.sort(datalist, new NewsComparator());
-						// Initiate the Arraylists of the content of the
-						// listview
-						final ArrayList<String> namelist = new ArrayList<String>();
-						final ArrayList<String> urlImages = new ArrayList<String>();
-						final ArrayList<String> infolist = new ArrayList<String>();
-						for (int i = 0; i < datalist.size(); ++i) {
-							String firstname;
-							String lastname;
-							String challenge;
-							String description;
-							String imagelink;
-							try {
-								// Make sure the http is in the right setup to
-								// get the image
-								URI uri = new URI("http",
-										"alpha.beatyourbucket.com", datalist
-												.get(i).get("url").toString(),
-										null);
-								// Get the image link
-								imagelink = uri.toString();
+		try {
+			final GetFromDatabase data = new GetFromDatabase(location, key,
+					value, getActivity(), new onLoadingFinishedListener() {
+						@Override
+						public void onLoadingFinished(
+								ArrayList<JSONObject> datalist) {
+							// Sort the datalist on timestamp, so that the
+							// newest
+							// posts will be seen first
+							Collections.sort(datalist, new NewsComparator());
+							// Initiate the Arraylists of the content of the
+							// listview
+							final ArrayList<String> namelist = new ArrayList<String>();
+							final ArrayList<String> urlImages = new ArrayList<String>();
+							final ArrayList<String> infolist = new ArrayList<String>();
+							for (int i = 0; i < datalist.size(); ++i) {
+								String firstname;
+								String lastname;
+								String challenge;
+								String description;
+								String imagelink;
+								try {
+									// Make sure the http is in the right setup
+									// to
+									// get the image
+									URI uri = new URI("http",
+											"alpha.beatyourbucket.com",
+											datalist.get(i).get("url")
+													.toString(), null);
+									// Get the image link
+									imagelink = uri.toString();
 
-								// Getting the right content from the datalist
-								firstname = datalist.get(i).get("first_name")
-										.toString();
-								lastname = datalist.get(i).get("last_name")
-										.toString();
-								challenge = datalist.get(i).get("challenge")
-										.toString();
-								description = datalist.get(i)
-										.get("description").toString();
+									// Getting the right content from the
+									// datalist
+									firstname = datalist.get(i)
+											.get("first_name").toString();
+									lastname = datalist.get(i).get("last_name")
+											.toString();
+									challenge = datalist.get(i)
+											.get("challenge").toString();
+									description = datalist.get(i)
+											.get("description").toString();
 
-								// Add the data to the lists
-								namelist.add(firstname + " " + lastname);
-								urlImages.add(imagelink);
-								infolist.add(challenge + "      " + description);
-							} catch (JSONException e) {
-								e.printStackTrace();
-							} catch (URISyntaxException e) {
-								e.printStackTrace();
+									// Add the data to the lists
+									namelist.add(firstname + " " + lastname);
+									urlImages.add(imagelink);
+									infolist.add(challenge + "      "
+											+ description);
+								} catch (JSONException e) {
+									e.printStackTrace();
+								} catch (URISyntaxException e) {
+									e.printStackTrace();
+								}
 							}
+							// Make and set the adapter to the listview
+							final NewsAdapter adapter = new NewsAdapter(
+									getActivity(), R.layout.layout_bucketlist,
+									namelist, urlImages, infolist);
+							listview.setAdapter(adapter);
 						}
-						// Make and set the adapter to the listview
-						final NewsAdapter adapter = new NewsAdapter(
-								getActivity(), R.layout.layout_bucketlist,
-								namelist, urlImages, infolist);
-						listview.setAdapter(adapter);
-					}
-				});
-		// Execute the getfromdatabase function
-		data.execute();
+					});
+			// Execute the getfromdatabase function
+			data.execute();
+		} catch (Exception a) {
+			System.exit(0);
+		}
+
 		return v;
 	}
 

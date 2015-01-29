@@ -14,10 +14,11 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.content.Context;
 import android.os.AsyncTask;
+import android.widget.Toast;
 
 class GetFromDatabase extends AsyncTask<Void, Integer, String> {
 
@@ -26,18 +27,24 @@ class GetFromDatabase extends AsyncTask<Void, Integer, String> {
 	private String location;
 	private String key;
 	private String value;
+	private Context c;
 
 	public GetFromDatabase(String location, String key, String value,
-			onLoadingFinishedListener listener) {
+			Context c, onLoadingFinishedListener listener) {
 		this.listener = listener;
 		this.location = location;
 		this.key = key;
 		this.value = value;
+		this.c = c;
 	}
 
 	@Override
 	protected String doInBackground(Void... params) {
-		return GetBucketData(location, key, value);
+		try {
+			return GetBucketData(location, key, value);
+		} catch (Exception e) {
+			return "";
+		}
 	}
 
 	protected void onPostExecute(String result) {
@@ -51,12 +58,14 @@ class GetFromDatabase extends AsyncTask<Void, Integer, String> {
 				list.add(jsonobject);
 				listener.onLoadingFinished(list);
 			}
-		} catch (JSONException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+			Toast.makeText(c, "Geen internet. Probeer opnieuw!",
+					Toast.LENGTH_SHORT).show();
 		}
 	}
 
-	public String GetBucketData(String location, String key, String value) {
+	public String GetBucketData(String location, String key, String value)
+			throws Exception {
 		String jstring = null;
 
 		// Create a new HttpClient and Post Header
@@ -74,6 +83,7 @@ class GetFromDatabase extends AsyncTask<Void, Integer, String> {
 			jstring = EntityUtils.toString(response.getEntity());
 		} catch (ClientProtocolException e) {
 		} catch (IOException e) {
+
 		}
 		return jstring;
 	}

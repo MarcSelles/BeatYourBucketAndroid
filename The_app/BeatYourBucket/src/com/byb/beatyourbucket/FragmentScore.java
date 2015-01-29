@@ -37,7 +37,7 @@ public class FragmentScore extends Fragment {
 		String value = bucketid;
 
 		final GetFromDatabase data = new GetFromDatabase(location, key, value,
-				new onLoadingFinishedListener() {
+				getActivity(), new onLoadingFinishedListener() {
 					@Override
 					public void onLoadingFinished(ArrayList<JSONObject> datalist) {
 						// Initiate the Arraylists of the content of the

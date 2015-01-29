@@ -46,7 +46,7 @@ public class FragmentBucket extends ListFragment {
 		String value = mail;
 
 		final GetFromDatabase data = new GetFromDatabase(location, key, value,
-				new onLoadingFinishedListener() {
+				getActivity(), new onLoadingFinishedListener() {
 					@Override
 					public void onLoadingFinished(ArrayList<JSONObject> datalist) {
 						// Initiate the Arraylists of the content of the

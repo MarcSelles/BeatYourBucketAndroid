@@ -37,7 +37,7 @@ public class FragmentChallenges extends Fragment {
 		String value = bucketid;
 
 		final GetFromDatabase data = new GetFromDatabase(location, key, value,
-				new onLoadingFinishedListener() {
+				getActivity(), new onLoadingFinishedListener() {
 					@Override
 					public void onLoadingFinished(ArrayList<JSONObject> datalist) {
 						// Initiate the Arraylist of the content of the listview
